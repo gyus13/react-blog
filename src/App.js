@@ -24,6 +24,13 @@ function App() {
                 }
             }> ♥ </span> {likeNum} </h4>
             <p>2월 17일 발행</p>
+            <button onClick = {
+                () => {
+                    const newArray = [...subject]; //deep copy
+                    newArray[0] = '여자코트 추천';
+                    alertSubject(newArray);
+                }
+            }>alert</button>
             <hr/>
         </div>
         <div className={"list"}>
