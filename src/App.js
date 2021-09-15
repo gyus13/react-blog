@@ -6,7 +6,8 @@ function App() {
 
     let [subject, alertSubject] = useState(['남자 코트 추천','강남 우동 맛집','성남 맛집']); // [a(string),b(함수)]
     let [likeNum, alertLikeNum] = useState(0);
-    let posts = '맛집';
+
+    let [modal, alertModal] = useState(false);
 
     function hundread(){
         return 100
@@ -39,12 +40,27 @@ function App() {
             <hr/>
         </div>
         <div className={"list"}>
-            <h4> { subject[2] } </h4>
+            <h4 onClick={
+                () => {
+                    let bool = true
+                    alertModal(bool);
+                }
+            }> { subject[2] } </h4>
             <p>2월 17일 발행</p>
             <hr/>
         </div>
-        
-        <Modal/>
+        <button onClick={
+            () => {
+                alertModal(!modal)
+            }
+        }>버튼</button>
+
+        {
+            modal === true
+                ? <Modal/>
+                : null
+        }
+
 
     </div>
   );
